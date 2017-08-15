@@ -1,5 +1,7 @@
 # Holistics CLI
 
+[![Gem Version](https://badge.fury.io/rb/holistics-cli.svg)](https://badge.fury.io/rb/holistics-cli)
+
 CommandLine Interface to [Holistics API](https://docs.holistics.io/api/)
 
 > Dislaim: The official Holistics-CLI is quite limit for me, so I made this gem as an alternative
