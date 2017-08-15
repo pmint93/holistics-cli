@@ -6,7 +6,7 @@ CommandLine Interface to [Holistics API](https://docs.holistics.io/api/)
 
 ## Installation
 
-    $ gem install holistics
+    $ gem install holistics-cli
 
 ## Usage
 
