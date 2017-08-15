@@ -37,8 +37,7 @@ Examples:
     def execute(id)
       puts "`transforms execute #{id}` called with options: #{options}" if Holistics.debug?
       result = @this.execute(id)
-      puts 'Job ID: ' + result['job_id'].to_s.yellow
-      puts 'Status: ' + Holistics::Utils.colorize(result['status'])
+      puts 'Job ID: ' + result['job_id'].to_s.yellow + " Submit: " + Holistics::Utils.colorize(result['status'])
       invoke 'holistics:jobs:logs', [result['job_id']], { watch: true }
     end
     map %w[exec] => :execute
