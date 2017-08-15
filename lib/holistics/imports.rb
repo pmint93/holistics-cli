@@ -44,7 +44,7 @@ Examples:
             source: source,
             destination: destination,
             created_at: DateTime.parse(item['created_at']).to_formatted_s(:short),
-            last_run: DateTime.parse(item['last_run']).to_formatted_s(:short),
+            last_run: item['last_run'] ? DateTime.parse(item['last_run']).to_formatted_s(:short): nil,
             last_run_status: last_run_status
           }
         end

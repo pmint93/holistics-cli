@@ -26,8 +26,8 @@ Examples:
             created_at: DateTime.parse(item['created_at']).to_formatted_s(:short),
             source_type: item['source_type'],
             source_id: item['source_id'],
-            # start_time: DateTime.parse(item['start_time']).to_formatted_s(:short),
-            # end_time: DateTime.parse(item['end_time']).to_formatted_s(:short),
+            # start_time: item['start_time'] ? DateTime.parse(item['start_time']).to_formatted_s(:short) : nil,
+            # end_time: item['end_time'] ? DateTime.parse(item['end_time']).to_formatted_s(:short) : nil,
             duration: Time.at(item['duration']).utc.strftime("%H:%M:%S"),
             # cancelledable
             user: item['user']['name'],
@@ -49,8 +49,8 @@ Examples:
         source_id: item['source_id'],
         created_at: DateTime.parse(item['created_at']).to_formatted_s(:short),
         user_id: item['user_id'],
-        start_time: DateTime.parse(item['start_time']).to_formatted_s(:short),
-        end_time: DateTime.parse(item['end_time']).to_formatted_s(:short),
+        start_time: item['start_time'] ? DateTime.parse(item['start_time']).to_formatted_s(:short) : nil,
+        end_time: item['end_time'] ? DateTime.parse(item['end_time']).to_formatted_s(:short) : nil,
         tenant_id: item['tenant_id'],
         duration: Time.at(item['duration']).utc.strftime("%H:%M:%S")
       }.each { |k, v| puts "\t" + [k,v].join(": ") }

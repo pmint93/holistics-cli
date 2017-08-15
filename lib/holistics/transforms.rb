@@ -21,7 +21,7 @@ Examples:
           item.slice(*%w{id title owner_name}).merge({
             mode: item['settings']['mode'],
             created_at: DateTime.parse(item['created_at']).to_formatted_s(:short),
-            last_run: DateTime.parse(item['last_run']).to_formatted_s(:short)
+            last_run: item['last_run'] ? DateTime.parse(item['last_run']).to_formatted_s(:short) : nil
           })
         end
       )
