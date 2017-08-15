@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'holistics'
+
+Holistics::CLI.start(ARGV)
