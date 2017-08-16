@@ -51,17 +51,19 @@ module Holistics
       puts "\nHolistics CommandLine Interface version #{Holistics::VERSION}".yellow
     end
 
-    desc 'config', 'Init or update config'
-    def config
-      token = nil
-      current_config = configured? ? read_config : {}
-      current_token = current_config[:token]
-      new_token = ask "Your Holistics token [#{current_token.light_black}]: "
-      new_token = nil if new_token.blank?
-      unless token = new_token || current_token
-        puts 'Failed to config, empty token provided !'
-        exit 1
-      else
+    desc 'config [TOKEN]', 'Init or update config'
+    def config(token = nil)
+      unless token
+        current_config = configured? ? read_config : {}
+        current_token = current_config[:token]
+        new_token = ask "Your Holistics token [#{current_token.light_black}]: "
+        new_token = nil if new_token.blank?
+        unless token = new_token || current_token
+          STDERR.puts 'Failed to config, empty token provided !'
+          exit 1
+        end
+      end
+      verify_token(token) do
         write_config(:token => token)
       end
     end
@@ -90,10 +92,26 @@ module Holistics
 
     def require_config!
       unless configured?
-        puts "Missing config, run #{'holistics config'.yellow} to init your"
+        STDERR.puts "Missing config, run #{'holistics config'.yellow} to init your"
         exit 1
       end
       Holistics.client ||= Holistics::Client.new(nil, read_config[:token])
+    end
+
+    def verify_token(token)
+      print 'Verifying token ...'
+      client = Holistics::Client.new(nil, token)
+      status, body = client.get('/users/info.json')
+      if status == 200
+        user_info = JSON.parse(body)
+        puts 'ok'.green
+        puts '- ID: ' + user_info['id'].to_s.yellow
+        puts '- Email: ' + user_info['email']
+        yield if block_given?
+      else
+        STDERR.puts 'Token is invalid'.red
+        exit 1
+      end
     end
 
     def read_config
