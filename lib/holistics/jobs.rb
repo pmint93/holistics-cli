@@ -57,8 +57,8 @@ Examples:
     end
 
     desc 'logs ID', 'Show job logs by ID'
-    method_option :watch, aliases: '-f', desc: 'Watch for new logs', type: :boolean
-    method_option :number, aliases: '-n', desc: 'Watch for new logs', type: :numeric
+    method_option :follow, aliases: '-f', desc: 'Specify if the logs should be streamed', type: :boolean
+    method_option :number, aliases: '-n', desc: 'Only print number of last lines', type: :numeric
     def logs(id)
       puts "`jobs logs #{id}` called with options: #{options}" if Holistics.debug?
       if options[:watch]
