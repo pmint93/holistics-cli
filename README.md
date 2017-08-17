@@ -17,7 +17,7 @@ CommandLine Interface to [Holistics API](https://docs.holistics.io/api/)
 ```
 $ holistics
 Commands:
-  holistics config          # Init or update config
+  holistics config [TOKEN]  # Init or update config
   holistics help [COMMAND]  # Describe available commands or one specific command
   holistics imports         # Import jobs
   holistics jobs            # Submitted jobs
@@ -25,6 +25,9 @@ Commands:
   holistics transforms      # Data transformations
   holistics version         # Show version information
 ```
+
+Learn more by help command: `holistics help`
+
 
 ## Development
 
