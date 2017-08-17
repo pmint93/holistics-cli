@@ -4,7 +4,7 @@
 
 CommandLine Interface to [Holistics API](https://docs.holistics.io/api/)
 
-> Dislaim: The official Holistics-CLI is quite limit for me, so I made this gem as an alternative
+> Disclaim: The official Holistics-CLI is quite limit for me, so I made this gem as an alternative
 
 :warning: This gem use the same command `holistics` as [Official Holistics-CLI](https://docs.holistics.io/holistics-cli/), so it may confict if both installed.
 
