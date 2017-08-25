@@ -65,14 +65,14 @@ Examples:
         last_id = 0
         loop do
           data = @this.logs(id, { 'last_id': last_id })
-          print_logs(data['logs'])
+          print_logs(id, data['logs'])
           last_id = data['logs'].last['id'] if data['logs'].length > 0
           break unless data['has_more']
           sleep 0.5
         end
       else
         data = @this.logs(id)
-        print_logs(data['logs'], options[:number])
+        print_logs(id, data['logs'], options[:number])
       end
     end
 
@@ -97,13 +97,13 @@ Examples:
 
     private
 
-    def print_logs(log_lines, line_count = 0)
+    def print_logs(job_id, log_lines, line_count = 0)
       line_count ||= 0
       log_lines ||= []
       log_lines[(-[line_count, log_lines.length].min)..-1]
       log_lines.each do |log_line|
         t = log_line['timestamp'] || Time.now.utc
-        puts "#{t}; #{log_line['level']}: #{log_line['message']}"
+        puts "[#{t} ##{job_id}] #{log_line['level']}: #{log_line['message']}"
       end
     end
 
