@@ -25,6 +25,19 @@ module Holistics
       [response.status, response.body]
     end
 
+    def put(path, options = {})
+      options[:params] ||= {}
+      options[:headers] ||= {}
+      options[:headers].merge!('Content-Type': 'application/json')
+      response = @conn.put do |req|
+        req.url path
+        req.headers.merge!(options[:headers])
+        req.params['_utoken'] = @token
+        req.body = options[:params].to_s
+      end
+      [response.status, response.body]
+    end
+
     def post(path, options = {})
       options[:params] ||= {}
       options[:headers] ||= {}

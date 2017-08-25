@@ -4,7 +4,7 @@ module Holistics
       COLORIZE_MAPPING = {
         green: %w{active success ok},
         red: %w{fail failure error cancelled},
-        yellow: %w{new running pending unknown}
+        yellow: %w{new running pending unknown cancelling}
       }
       def colorize(text)
         color = COLORIZE_MAPPING.find { |color, values| values.include?(text) }

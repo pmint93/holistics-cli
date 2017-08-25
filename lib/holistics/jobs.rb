@@ -76,10 +76,24 @@ Examples:
       end
     end
 
-    # desc 'cancel', 'Cancel a running job'
-    # def cancel(id)
-    #   puts "Comming soon".yellow
-    # end
+    desc 'cancel', 'Cancel a running job'
+    def cancel(id)
+      puts "`jobs cancel #{id}` called with options: #{options}" if Holistics.debug?
+      print "Cancelling Job #{id} ...".yellow
+      result = @this.cancel(id)
+      if result['status'].to_s.upcase == 'OK'
+        loop do
+          job_info = @this.find(id)
+          unless job_info['status'] == 'cancelling'
+            puts Holistics::Utils.colorize(job_info['status'])
+            break
+          end
+          sleep 0.5
+        end
+      else
+        puts "Failed to cancel the job #{id}".red
+      end
+    end
 
     private
 
