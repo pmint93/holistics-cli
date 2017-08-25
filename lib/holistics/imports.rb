@@ -63,7 +63,7 @@ Examples:
       result = @this.execute(id)
       puts 'Job ID: ' + result['job_id'].to_s.yellow
       puts 'Status: ' + Holistics::Utils.colorize(result['status'])
-      invoke 'holistics:jobs:logs', [result['job_id']], { watch: true }
+      invoke 'holistics:jobs:logs', [result['job_id']], { follow: true }
     end
     map %w[exec] => :execute
 

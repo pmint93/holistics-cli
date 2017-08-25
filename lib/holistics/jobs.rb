@@ -61,7 +61,7 @@ Examples:
     method_option :number, aliases: '-n', desc: 'Only print number of last lines', type: :numeric
     def logs(id)
       puts "`jobs logs #{id}` called with options: #{options}" if Holistics.debug?
-      if options[:watch]
+      if options[:follow]
         last_id = 0
         loop do
           data = @this.logs(id, { 'last_id': last_id })
