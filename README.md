@@ -1,6 +1,6 @@
 # Holistics CLI
 
-[![Gem Version](https://badge.fury.io/rb/holistics-cli.svg)](https://badge.fury.io/rb/holistics-cli)
+[![Gem Version](https://badge.fury.io/rb/holistics-cli.svg)](https://badge.fury.io/rb/holistics-cli) [![Test Coverage](https://codeclimate.com/github/pmint93/holistics-cli/badges/coverage.svg)](https://codeclimate.com/github/pmint93/holistics-cli/coverage) [![Code Climate](https://codeclimate.com/github/pmint93/holistics-cli/badges/gpa.svg)](https://codeclimate.com/github/pmint93/holistics-cli) [![Issue Count](https://codeclimate.com/github/pmint93/holistics-cli/badges/issue_count.svg)](https://codeclimate.com/github/pmint93/holistics-cli)
 
 CommandLine Interface to [Holistics API](https://docs.holistics.io/api/)
 
