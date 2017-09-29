@@ -1,3 +1,8 @@
+## 0.2.0, release 2017-09-29
+* Bug fix: unable to config token
+
+* Add `job cancel` command
+
 ## 0.1.2, release 2017-08-17
 * Bug fixes
 
