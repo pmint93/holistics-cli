@@ -56,7 +56,7 @@ module Holistics
       unless token
         current_config = configured? ? read_config : {}
         current_token = current_config[:token]
-        new_token = ask "Your Holistics token [#{current_token.light_black}]: "
+        new_token = ask "Your Holistics token [#{current_token.to_s.light_black}]: "
         new_token = nil if new_token.blank?
         unless token = new_token || current_token
           STDERR.puts 'Failed to config, empty token provided !'
