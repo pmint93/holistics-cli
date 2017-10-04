@@ -1,3 +1,6 @@
+## 0.2.1, release 2017-10-04
+* Bug fix: error caused by API return NULL created_at
+
 ## 0.2.0, release 2017-09-29
 * Bug fix: unable to config token
 
