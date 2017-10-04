@@ -23,7 +23,7 @@ Examples:
             id: item['id'],
             source_method: item['source_method'],
             title: item['title'],
-            created_at: DateTime.parse(item['created_at']).to_formatted_s(:short),
+            created_at: item['created_at'] ? DateTime.parse(item['created_at']).to_formatted_s(:short) : nil,
             source_type: item['source_type'],
             source_id: item['source_id'],
             # start_time: item['start_time'] ? DateTime.parse(item['start_time']).to_formatted_s(:short) : nil,
