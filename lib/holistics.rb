@@ -4,6 +4,7 @@ require 'json'
 require 'table_print'
 require 'fileutils'
 require 'active_support/all'
+require 'yaml'
 
 # require 'byebug'
 

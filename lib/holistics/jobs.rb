@@ -41,8 +41,8 @@ Examples:
     def info(id)
       puts "`jobs info #{id}` called with options: #{options}" if Holistics.debug?
       item = @this.find(id)
-      puts "Job ID: " + item['id'].to_s.yellow
       {
+        id: item['id'].to_s.yellow,
         status: Holistics::Utils.colorize(item['status']),
         source_method: item['source_method'],
         source_type: item['source_type'],
@@ -53,7 +53,7 @@ Examples:
         end_time: item['end_time'] ? DateTime.parse(item['end_time']).to_formatted_s(:short) : nil,
         tenant_id: item['tenant_id'],
         duration: (item['duration'] < 0 ? nil : Time.at(item['duration']).utc.strftime("%H:%M:%S"))
-      }.each { |k, v| puts "\t" + [k,v].join(": ") }
+      }.each { |k, v| puts [k.to_s.upcase, v].join(": ") }
     end
 
     desc 'logs ID', 'Show job logs by ID'

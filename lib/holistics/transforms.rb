@@ -41,7 +41,7 @@ Examples:
         dest_schema_name: item['dest_schema_name'],
         dest_table_name: item['dest_table_name'],
         tenant_id: item['tenant_id'],
-        settings: item['settings'],
+        settings: item['settings'].to_yaml.gsub(/^---/, '').gsub(/\n$/, '').gsub("\n", "\n    "),
         created_at: item['created_at'] ? DateTime.parse(item['created_at']).to_formatted_s(:short) : nil,
         updated_at: item['updated_at'] ? DateTime.parse(item['updated_at']).to_formatted_s(:short) : nil
       }.each { |k, v| puts [k.to_s.upcase, v].join(": ") }

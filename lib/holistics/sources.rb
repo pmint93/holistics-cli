@@ -22,14 +22,12 @@ Examples:
     desc 'info ID', 'Show a data source by ID'
     def info(id)
       puts "`sources info #{id}` called with options: #{options}" if Holistics.debug?
-      item = @this.find(id)
-      puts "Source ID: " + item['id'].to_s.yellow
-      {
-        name: item['name'],
-        dbtype: item['dbtype'],
-        slug: item['slug'],
-        settings: item['settings']
-      }.each { |k, v| puts "\t" + [k,v].join(": ") }
+      item = {}
+      @this.find(id).each do |k, v|
+        item[k.to_s.upcase] = v
+      end
+      item['ID'] = item['ID']
+      puts item.to_yaml.gsub(/^---\n/, '')
     end
 
     # desc 'delete ID', 'Remove a data source by ID'
