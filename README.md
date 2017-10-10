@@ -2,15 +2,18 @@
 
 [![Gem Version](https://badge.fury.io/rb/holistics-cli.svg)](https://badge.fury.io/rb/holistics-cli) [![Test Coverage](https://codeclimate.com/github/pmint93/holistics-cli/badges/coverage.svg)](https://codeclimate.com/github/pmint93/holistics-cli/coverage) [![Code Climate](https://codeclimate.com/github/pmint93/holistics-cli/badges/gpa.svg)](https://codeclimate.com/github/pmint93/holistics-cli) [![Issue Count](https://codeclimate.com/github/pmint93/holistics-cli/badges/issue_count.svg)](https://codeclimate.com/github/pmint93/holistics-cli)
 
-CommandLine Interface to [Holistics API](https://docs.holistics.io/api/)
+CommandLine Interface for [Holistics API](https://docs.holistics.io/api/)
 
-> Disclaim: The official Holistics-CLI is quite limit for me, so I made this gem as an alternative
+> Disclaim: The official Holistics CLI is quite limit for me, so I made this gem as an alternative.
 
-:warning: This gem use the same command `holistics` as [Official Holistics-CLI](https://docs.holistics.io/holistics-cli/), so it may confict if both installed.
+> Also, this offer some commands that's not yet documented by Holistics or implemented in official CLI.
 
 ## Installation
 
     $ gem install holistics-cli
+    
+
+:warning: This gem use the same command `holistics` as [Official Holistics-CLI](https://docs.holistics.io/holistics-cli/), so it may confict if both installed.
 
 ## Usage
 
@@ -49,4 +52,4 @@ Everyone interacting in the Holistics-CLI project’s codebases, issue trackers,
 
 ## Related
 
-* [Official Holistics-CLI](https://docs.holistics.io/holistics-cli/)
+* [Official Holistics CLI](https://docs.holistics.io/holistics-cli/)
