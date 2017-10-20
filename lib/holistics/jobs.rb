@@ -8,7 +8,7 @@ module Holistics
       super
       puts <<-INSTRUCTION
 Examples:
-  holistics jobs list -t transform # List all transform jobs
+  holistics jobs list -t DataTransform # List all transform jobs
 
       INSTRUCTION
     end
@@ -18,7 +18,7 @@ Examples:
     def list
       puts "`jobs list` called with options: #{options}" if Holistics.debug?
       tp(
-        @this.all.map do |item|
+        @this.all(options).map do |item|
           {
             id: item['id'],
             source_method: item['source_method'],
